@@ -8,6 +8,14 @@ import { cards } from '../utils/Data';
 import Card from '../components/card/Card';
 import { v4 as uuid } from 'uuid';
 
+import Portfolio1 from '../assets/project-slider-img-1.webp'
+import Portfolio2 from '../assets/project-slider-img-2.webp'
+import Portfolio3 from '../assets/project-slider-img-3.webp'
+import Portfolio4 from '../assets/project-slider-img-4.webp'
+
+
+
+
 export const Home = () => {
    const skillRef = useRef(null);
 
@@ -129,6 +137,40 @@ export const Home = () => {
             
         </div>
       </section>
+
+      <section className="portfolio" id="protfolio">
+       
+    <h3 className="section__lable">My Portfolio</h3>
+    <h2 className="section__title">My Complite  projects</h2>
+     <div className="portfolio__grid">
+        <div className="portfolio__card">
+         <img src={Portfolio1} alt="Portfolio1" />
+         <div className="portfolio__card-ttile">Protfolio 1</div>
+        </div>
+        <div className="portfolio__card">
+         <img src={Portfolio2} alt="Portfolio2" />
+         <div className="portfolio__card-ttile">Protfolio 2</div>
+        </div>
+        <div className="portfolio__card">
+         <img src={Portfolio3} alt="Portfolio3" />
+         <div className="portfolio__card-ttile">Protfolio 3</div>
+        </div>
+        <div className="portfolio__card">
+         <img src={Portfolio4} alt="Portfolio4" />
+         <div className="portfolio__card-ttile">Protfolio 4</div>
+        </div>
+        <div className="portfolio__card">
+         <img src={Portfolio3} alt="Portfolio3" />
+         <div className="portfolio__card-ttile">Protfolio 5</div>
+        </div>
+        <div className="portfolio__card">
+         <img src={Portfolio1} alt="Portfolio1" />
+         <div className="portfolio__card-ttile">Protfolio 6</div>
+        </div>
+     </div>
+      </section>
+
+
     </div>
   );
 }
