@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './home.css';
 import { FaFacebook, FaPlay } from 'react-icons/fa';
 import HeroImg from '../assets/dev.png';
@@ -9,6 +9,38 @@ import Card from '../components/card/Card';
 import { v4 as uuid } from 'uuid';
 
 export const Home = () => {
+   const skillRef = useRef(null);
+
+   useEffect(() => {
+     const animateProgressbar = () => {
+       const progressBars = document.querySelectorAll('.skill_progress-line');
+       progressBars.forEach((progressBar) => {
+         const percent = progressBar.getAttribute('data-width');
+         progressBar.style.width = `${percent}%`;
+       });
+     };
+ 
+     const observer = new IntersectionObserver(
+       (entries) => {
+         entries.forEach((entry) => {
+           if (entry.isIntersecting) {
+             animateProgressbar();
+             observer.disconnect();
+           }
+         });
+       },
+       { threshold: 0.5 }
+     );
+ 
+     if (skillRef.current) {
+       observer.observe(skillRef.current);
+     }
+ 
+     return () => {
+       observer.disconnect();
+     };
+   }, []);
+
   return (
     <div className='container home'>
       <section className="hero-section" id='home'>
@@ -57,6 +89,44 @@ export const Home = () => {
               features={card?.features}
             />
           ))}
+        </div>
+      </section>
+      <section className="skill" id='skills' ref={skillRef}>
+        <div className="skill__left">
+           <h3 className="section__lable">My Skills</h3>
+           <h2 className="section__title">My Specials Skills are</h2>
+           <a href="/resume.pdf" download={'resume.pdf'} className='button'>Get Resume</a> 
+        </div>
+        <div className="skill__right">
+            <div className="skill_wrapper">
+                <div className="skill__tag">Development</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='75'></div>
+                    <div className="skill_percentage">75%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Design</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='50'></div>
+                    <div className="skill_percentage">50%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Cloud</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='95'></div>
+                    <div className="skill_percentage">95%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Java</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='95'></div>
+                    <div className="skill_percentage">95%</div>
+                </div>
+            </div>
+            
         </div>
       </section>
     </div>
