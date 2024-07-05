@@ -7,26 +7,25 @@ import { TiSocialInstagram, TiSocialLinkedin } from 'react-icons/ti';
 import { cards } from '../utils/Data';
 import Card from '../components/card/Card';
 import { v4 as uuid } from 'uuid';
+import { register } from 'swiper/element/bundle';
+
 
 import Portfolio1 from '../assets/project-slider-img-1.webp'
 import Portfolio2 from '../assets/project-slider-img-2.webp'
 import Portfolio3 from '../assets/project-slider-img-3.webp'
 import Portfolio4 from '../assets/project-slider-img-4.webp'
+import { Contact } from '../contex/Contact';
+
 
 
 
 
 export const Home = () => {
    const skillRef = useRef(null);
+   const swiperRef = useRef(null);
 
    useEffect(() => {
-     const animateProgressbar = () => {
-       const progressBars = document.querySelectorAll('.skill_progress-line');
-       progressBars.forEach((progressBar) => {
-         const percent = progressBar.getAttribute('data-width');
-         progressBar.style.width = `${percent}%`;
-       });
-     };
+    
  
      const observer = new IntersectionObserver(
        (entries) => {
@@ -48,6 +47,37 @@ export const Home = () => {
        observer.disconnect();
      };
    }, []);
+
+   useEffect(() => {
+    register();
+
+    const params = {
+        breakpoints: {
+            280: {
+                slidesPerView: 1,
+            },
+            600: {
+                slidesPerView: 2,
+            },
+            991: {
+                slidesPerView: 3,
+            },
+        },
+    };
+
+    Object.assign(swiperRef.current, params);
+
+    swiperRef.current.initialize();
+}, []);
+
+    const animateProgressbar = () => {
+        const progressBars = document.querySelectorAll('.skill_progress-line');
+        progressBars.forEach((progressBar) => {
+          const percent = progressBar.getAttribute('data-width');
+          progressBar.style.width = `${percent}%`;
+        });
+      };
+
 
   return (
     <div className='container home'>
@@ -139,9 +169,8 @@ export const Home = () => {
       </section>
 
       <section className="portfolio" id="protfolio">
-       
-    <h3 className="section__lable">My Portfolio</h3>
-    <h2 className="section__title">My Complite  projects</h2>
+      <h3 className="section__lable">My Portfolio</h3>
+       <h2 className="section__title">My Complite  projects</h2>
      <div className="portfolio__grid">
         <div className="portfolio__card">
          <img src={Portfolio1} alt="Portfolio1" />
@@ -168,9 +197,79 @@ export const Home = () => {
          <div className="portfolio__card-ttile">Protfolio 6</div>
         </div>
      </div>
-      </section>
+     </section>
+      
+     <section className='testimonials' id='testimonials'>
+				<h3 className='section__label'>Testimonials</h3>
+				<h2 className=' section__title'>Satisfied Clients Say</h2>
+				<div className='testimonials__wrapper'>
+					<swiper-container speed='500' ref={swiperRef} css-mode='true'>
+						<swiper-slide>
+							<div className='testimonials__card'>
+								<div className='testimonials__text'>
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Voluptatibus, enim.
+								</div>
+								<div className='testimonials__author'>Blake</div>
+								<div className='testimonials__author-title'>
+									CEO Carrington Atlantic
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div className='testimonials__card'>
+								<div className='testimonials__text'>
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Voluptatibus, enim.
+								</div>
+								<div className='testimonials__author'>Fallon</div>
+								<div className='testimonials__author-title'>
+									CEO Fallon Unlimited
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div className='testimonials__card'>
+								<div className='testimonials__text'>
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Voluptatibus, enim.
+								</div>
+								<div className='testimonials__author'>Sam</div>
+								<div className='testimonials__author-title'>CEO Van Kirk</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div className='testimonials__card'>
+								<div className='testimonials__text'>
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Voluptatibus, enim.
+								</div>
+								<div className='testimonials__author'>Steven</div>
+								<div className='testimonials__author-title'>
+									CEO carrington foundation
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div className='testimonials__card'>
+								<div className='testimonials__text'>
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Voluptatibus, enim.
+								</div>
+								<div className='testimonials__author'>Steve</div>
+								<div className='testimonials__author-title'>CEO Dan Joe</div>
+							</div>
+						</swiper-slide>
+					</swiper-container>
+				</div>
+	 </section>
+     <div className='contact' id='contact'>
+				<h3 className='section__label'>Contact</h3>
+				<h2 className=' section__title'>Connect with us</h2>
 
-
+				<Contact />
+			</div>
+        
     </div>
   );
 }
