@@ -21,55 +21,54 @@ import { Contact } from '../contex/Contact';
 
 
 export const Home = () => {
-   const skillRef = useRef(null);
-   const swiperRef = useRef(null);
-
-   useEffect(() => {
-    
+    const skillRef = useRef(null);
+    const swiperRef = useRef(null);
  
-     const observer = new IntersectionObserver(
-       (entries) => {
-         entries.forEach((entry) => {
-           if (entry.isIntersecting) {
-             animateProgressbar();
-             observer.disconnect();
-           }
-         });
-       },
-       { threshold: 0.5 }
-     );
- 
-     if (skillRef.current) {
-       observer.observe(skillRef.current);
-     }
- 
-     return () => {
-       observer.disconnect();
-     };
-   }, []);
-
-   useEffect(() => {
-    register();
-
-    const params = {
-        breakpoints: {
-            280: {
-                slidesPerView: 1,
-            },
-            600: {
-                slidesPerView: 2,
-            },
-            991: {
-                slidesPerView: 3,
-            },
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateProgressbar();
+              observer.disconnect();
+            }
+          });
         },
-    };
-
-    Object.assign(swiperRef.current, params);
-
-    swiperRef.current.initialize();
-}, []);
-
+        { threshold: 0.5 }
+      );
+ 
+      if (skillRef.current) {
+        observer.observe(skillRef.current);
+      }
+ 
+      return () => {
+        observer.disconnect();
+      };
+    }, []);
+ 
+    useEffect(() => {
+      register();
+ 
+      const params = {
+        breakpoints: {
+          280: {
+            slidesPerView: 1,
+          },
+          600: {
+            slidesPerView: 2,
+          },
+          991: {
+            slidesPerView: 3,
+          },
+        },
+      };
+ 
+      if (swiperRef.current) {
+        Object.assign(swiperRef.current, params);
+        swiperRef.current.initialize();
+      }
+    }, []);
+ 
     const animateProgressbar = () => {
         const progressBars = document.querySelectorAll('.skill_progress-line');
         progressBars.forEach((progressBar) => {
@@ -77,6 +76,7 @@ export const Home = () => {
           progressBar.style.width = `${percent}%`;
         });
       };
+      
 
 
   return (
@@ -87,14 +87,14 @@ export const Home = () => {
             Hello I am <br /> Viktor
           </div>
           <div className="hero-section__paragraph">
-            <h3> Frontend Developer specialized in HTML, CSS, JavaScript, and React
-            </h3>
+          <h3>Frontend Developer specialized in HTML, CSS, JavaScript, React, Java, and Databases</h3>
+
           </div>
           <a href='/resume.pdf' download="resume.pdf" className='button'> Get Resume
           </a>
           <div className="video-link">
             <div className="link">
-              <a href="https://example.com">
+              <a href="https://www.youtube.com/watch?v=1HgKB4-kQdA">
                 <FaPlay />
               </a>
             </div>
@@ -104,14 +104,14 @@ export const Home = () => {
         <div className="hero-section__right">
           <div className="hero-section__image">
             <img src={HeroImg} alt="hero img" />
-            <div className="hero-section-image-half-round-shape">
-            </div>
+            <div className="hero-section-image-half-round-shape"></div>
             <div className="social-links">
-              <a href=""><FaFacebook /></a>
-              <a href=""><FaXTwitter /></a>
-              <a href=""><TiSocialLinkedin /></a>
-              <a href=""><TiSocialInstagram /></a>
-            </div>
+  <a href="https://www.facebook.com/share/dfbewc7XARBaLYbE/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+  <a href="https://x.com/ViktorBrus55119?s=09" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+  <a href="https://www.linkedin.com/in/viktor-brusilovsky-9a1471108/" target="_blank" rel="noopener noreferrer"><TiSocialLinkedin /></a>
+  <a href="https://www.instagram.com/viktorbrusilov?utm_source=qr&igsh=N2g0ODBmcjJybzZy" target="_blank" rel="noopener noreferrer"><TiSocialInstagram /></a>
+</div>
+
           </div>
         </div>
       </section>
@@ -204,62 +204,52 @@ export const Home = () => {
 				<h2 className=' section__title'>Satisfied Clients Say</h2>
 				<div className='testimonials__wrapper'>
 					<swiper-container speed='500' ref={swiperRef} css-mode='true'>
-						<swiper-slide>
-							<div className='testimonials__card'>
-								<div className='testimonials__text'>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-									Voluptatibus, enim.
-								</div>
-								<div className='testimonials__author'>Blake</div>
-								<div className='testimonials__author-title'>
-									CEO Carrington Atlantic
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div className='testimonials__card'>
-								<div className='testimonials__text'>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-									Voluptatibus, enim.
-								</div>
-								<div className='testimonials__author'>Fallon</div>
-								<div className='testimonials__author-title'>
-									CEO Fallon Unlimited
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div className='testimonials__card'>
-								<div className='testimonials__text'>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-									Voluptatibus, enim.
-								</div>
-								<div className='testimonials__author'>Sam</div>
-								<div className='testimonials__author-title'>CEO Van Kirk</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div className='testimonials__card'>
-								<div className='testimonials__text'>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-									Voluptatibus, enim.
-								</div>
-								<div className='testimonials__author'>Steven</div>
-								<div className='testimonials__author-title'>
-									CEO carrington foundation
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div className='testimonials__card'>
-								<div className='testimonials__text'>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-									Voluptatibus, enim.
-								</div>
-								<div className='testimonials__author'>Steve</div>
-								<div className='testimonials__author-title'>CEO Dan Joe</div>
-							</div>
-						</swiper-slide>
+                    <swiper-slide>
+    <div className='testimonials__card'>
+        <div className='testimonials__text'>
+            The service was very good, though there were a few minor issues that could be improved.
+        </div>
+        <div className='testimonials__author'>Emily</div>
+        <div className='testimonials__author-title'>Manager at Tech Solutions</div>
+    </div>
+</swiper-slide>
+<swiper-slide>
+    <div className='testimonials__card'>
+        <div className='testimonials__text'>
+            Overall, I had a positive experience. The team was helpful and the project was delivered on time.
+        </div>
+        <div className='testimonials__author'>Michael</div>
+        <div className='testimonials__author-title'>Director at Innovate Corp</div>
+    </div>
+</swiper-slide>
+<swiper-slide>
+    <div className='testimonials__card'>
+        <div className='testimonials__text'>
+            Good job! There were some areas for improvement, but I am satisfied with the results.
+        </div>
+        <div className='testimonials__author'>Sophia</div>
+        <div className='testimonials__author-title'>CTO at Future Tech</div>
+    </div>
+</swiper-slide>
+<swiper-slide>
+    <div className='testimonials__card'>
+        <div className='testimonials__text'>
+            The project was well executed, though there were a few delays. Overall, I would recommend them.
+        </div>
+        <div className='testimonials__author'>James</div>
+        <div className='testimonials__author-title'>CEO at Smart Innovations</div>
+    </div>
+</swiper-slide>
+<swiper-slide>
+    <div className='testimonials__card'>
+        <div className='testimonials__text'>
+            Good quality work. Some minor hiccups, but nothing that couldn't be fixed quickly.
+        </div>
+        <div className='testimonials__author'>Olivia</div>
+        <div className='testimonials__author-title'>Product Manager at Tech Wave</div>
+    </div>
+</swiper-slide>
+
 					</swiper-container>
 				</div>
 	 </section>
