@@ -23,7 +23,7 @@
 }
 
 .hero-section__paragraph{
-    padding: 20px 0;
+    padding: 20px -1;
     line-height: 1.4;
 }
 
@@ -33,7 +33,7 @@
     top: auto;
     left: auto;
     transform: translateX(-30%);
-    z-index: -1;
+    z-index: 1;
     
 }
 .hero-section__image img{

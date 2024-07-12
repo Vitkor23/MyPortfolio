@@ -10,10 +10,9 @@ import { v4 as uuid } from 'uuid';
 import { register } from 'swiper/element/bundle';
 
 
-import Portfolio1 from '../assets/project-slider-img-1.webp'
-import Portfolio2 from '../assets/project-slider-img-2.webp'
-import Portfolio3 from '../assets/project-slider-img-3.webp'
-import Portfolio4 from '../assets/project-slider-img-4.webp'
+import Portfolio1 from '../assets/project1.png'
+import Portfolio3 from '../assets/project3.gif'
+import Portfolio2 from '../assets/project2.png'
 import { Contact } from '../contex/Contact';
 
 
@@ -94,7 +93,15 @@ export const Home = () => {
           </a>
           <div className="video-link">
             <div className="link">
-              <a href="https://www.youtube.com/watch?v=1HgKB4-kQdA">
+              <a href="https://youtu.be/LizumDmoSl0?si=sAfIZUb7Wx7dln45">
+                <FaPlay />
+              </a>
+            </div>
+            <span>Video Link</span>
+          </div>
+          <div className="video-link">
+            <div className="link">
+              <a href="https://www.youtube.com/shorts/85GcZolYsKI">
                 <FaPlay />
               </a>
             </div>
@@ -137,31 +144,31 @@ export const Home = () => {
         </div>
         <div className="skill__right">
             <div className="skill_wrapper">
-                <div className="skill__tag">Development</div>
-                <div className="skill_box">
-                    <div className="skill_progress-line" data-width='75'></div>
-                    <div className="skill_percentage">75%</div>
-                </div>
-            </div>
-            <div className="skill_wrapper">
-                <div className="skill__tag">Design</div>
-                <div className="skill_box">
-                    <div className="skill_progress-line" data-width='50'></div>
-                    <div className="skill_percentage">50%</div>
-                </div>
-            </div>
-            <div className="skill_wrapper">
-                <div className="skill__tag">Cloud</div>
-                <div className="skill_box">
-                    <div className="skill_progress-line" data-width='95'></div>
-                    <div className="skill_percentage">95%</div>
-                </div>
-            </div>
-            <div className="skill_wrapper">
                 <div className="skill__tag">Java</div>
                 <div className="skill_box">
-                    <div className="skill_progress-line" data-width='95'></div>
-                    <div className="skill_percentage">95%</div>
+                    <div className="skill_progress-line" data-width='90'></div>
+                    <div className="skill_percentage">90%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Developer</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='84'></div>
+                    <div className="skill_percentage">84%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Date base</div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='70'></div>
+                    <div className="skill_percentage">70%</div>
+                </div>
+            </div>
+            <div className="skill_wrapper">
+                <div className="skill__tag">Design </div>
+                <div className="skill_box">
+                    <div className="skill_progress-line" data-width='60'></div>
+                    <div className="skill_percentage">60%</div>
                 </div>
             </div>
             
@@ -174,7 +181,7 @@ export const Home = () => {
      <div className="portfolio__grid">
         <div className="portfolio__card">
          <img src={Portfolio1} alt="Portfolio1" />
-         <div className="portfolio__card-ttile">Protfolio 1</div>
+         <div className="portfolio__card-ttile"><a href="https://pet-house-fronted.vercel.app/"> Protfolio 1</a></div>
         </div>
         <div className="portfolio__card">
          <img src={Portfolio2} alt="Portfolio2" />
@@ -184,22 +191,11 @@ export const Home = () => {
          <img src={Portfolio3} alt="Portfolio3" />
          <div className="portfolio__card-ttile">Protfolio 3</div>
         </div>
-        <div className="portfolio__card">
-         <img src={Portfolio4} alt="Portfolio4" />
-         <div className="portfolio__card-ttile">Protfolio 4</div>
-        </div>
-        <div className="portfolio__card">
-         <img src={Portfolio3} alt="Portfolio3" />
-         <div className="portfolio__card-ttile">Protfolio 5</div>
-        </div>
-        <div className="portfolio__card">
-         <img src={Portfolio1} alt="Portfolio1" />
-         <div className="portfolio__card-ttile">Protfolio 6</div>
-        </div>
+        
      </div>
      </section>
       
-     <section className='testimonials' id='testimonials'>
+     {/* <section className='testimonials' id='testimonials'>
 				<h3 className='section__label'>Testimonials</h3>
 				<h2 className=' section__title'>Satisfied Clients Say</h2>
 				<div className='testimonials__wrapper'>
@@ -252,7 +248,7 @@ export const Home = () => {
 
 					</swiper-container>
 				</div>
-	 </section>
+	 </section> */}
      <div className='contact' id='contact'>
 				<h3 className='section__label'>Contact</h3>
 				<h2 className=' section__title'>Connect with us</h2>
