@@ -251,7 +251,7 @@ export const Home = () => {
 	 </section> */}
      <div className='contact' id='contact'>
 				<h3 className='section__label'>Contact</h3>
-				<h2 className=' section__title'>Connect with us</h2>
+				<h2 className=' section__title'>Connect with me</h2>
 
 				<Contact />
 			</div>
